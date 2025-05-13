@@ -1,0 +1,18 @@
+<div class="min-h-screen flex items-center justify-center bg-neutral-900">
+  <div class="bg-neutral-800 p-10 rounded-2xl shadow-lg w-full max-w-md">
+    <h2 class="text-3xl font-bold text-center text-white mb-2">
+      {{ title }}
+    </h2>
+    <p class="text-center text-neutral-400 mb-6">
+      {{ subtitle }}
+    </p>
+    <ng-content></ng-content>
+    <p class="text-center text-neutral-400 mt-6">
+      {{ footerText }}
+      <a
+        [routerLink]="footerLink"
+        class="text-yellow-400 font-semibold hover:underline"
+      >{{ footerLinkText }}</a>
+    </p>
+  </div>
+</div>
