@@ -1,0 +1,65 @@
+<form [formGroup]="authForm" (submit)="onSubmit()">
+  @if (isRegister) {
+  <div class="flex gap-4 mb-4">
+    <div class="w-1/2">
+      <label class="block text-white mb-1" for="first-name">Nome</label>
+      <input
+        id="first-name"
+        formControlName="firstName"
+        type="text"
+        class="w-full px-4 py-2 rounded-md bg-neutral-700 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
+      />
+    </div>
+    <div class="w-1/2">
+      <label class="block text-white mb-1" for="last-name">Sobrenome</label>
+      <input
+        id="last-name"
+        formControlName="lastName"
+        type="text"
+        class="w-full px-4 py-2 rounded-md bg-neutral-700 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
+      />
+    </div>
+  </div>
+  }
+
+  <div class="mb-4">
+    <label class="block text-white mb-1" for="email">Email</label>
+    <input
+      id="email"
+      formControlName="email"
+      type="email"
+      class="w-full px-4 py-2 rounded-md bg-neutral-700 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
+    />
+  </div>
+
+  <div class="mb-4">
+    <label class="block text-white mb-1" for="password">Senha</label>
+    <input
+      id="password"
+      formControlName="password"
+      type="password"
+      class="w-full px-4 py-2 rounded-md bg-neutral-700 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
+    />
+  </div>
+
+  @if (isRegister) {
+  <div class="mb-6">
+    <label class="block text-white mb-1" for="confirm-password"
+      >Confirme sua senha </label
+    >
+    <input
+      id="confirm-password"
+      formControlName="confirmPassword"
+      type="password"
+      class="w-full px-4 py-2 rounded-md bg-neutral-700 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
+    />
+  </div>
+  }
+
+  <button
+    type="submit"
+    class="w-full bg-yellow-400 hover:bg-yellow-500 text-neutral-900 font-semibold py-3 rounded-md transition-colors cursor-pointer"
+  >
+    {{ isRegister ? "Criar conta" : "Entrar" }}
+  </button>
+</form>
