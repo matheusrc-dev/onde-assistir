@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthLayoutComponent } from '../auth/auth-layout/auth-layout.component';
@@ -12,21 +12,24 @@ import { AuthService } from '../services/auth.service';
   templateUrl: './login.component.html'
 })
 export class LoginComponent {
+  @ViewChild(AuthFormComponent) authFormComponent!: AuthFormComponent;
+
   constructor(
     private router: Router,
     private authService: AuthService
   ) {
-    // Redirecionar para home se já estiver autenticado
     if (this.authService.hasValidToken()) {
       this.router.navigate(['/home']);
     }
   }
 
   onLogin(formData: any) {
-    const success = this.authService.login(formData.email, formData.password);
+    const result = this.authService.login(formData.email, formData.password);
     
-    if (success) {
+    if (result.success) {
       this.router.navigate(['/home']);
+    } else if (result.error === 'invalidCredentials') {
+      this.authFormComponent.authForm.setErrors({ invalidCredentials: true });
     }
   }
 }

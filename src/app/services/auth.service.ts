@@ -11,7 +11,7 @@ export class AuthService {
 
   constructor(private router: Router) {}
 
-  login(email: string, password: string): boolean {
+  login(email: string, password: string): { success: boolean, error?: string } {
     const users = JSON.parse(localStorage.getItem('users') || '[]');
     const user = users.find(
       (u: any) => u.email === email && u.password === password
@@ -26,22 +26,22 @@ export class AuthService {
         lastName: user.lastName
       }));
       this.isLoggedInSubject.next(true);
-      return true;
+      return { success: true };
     }
-    return false;
+    return { success: false, error: 'invalidCredentials' };
   }
 
-  register(user: any): boolean {
+  register(user: any): { success: boolean, error?: string } {
     const users = JSON.parse(localStorage.getItem('users') || '[]');
     const userExists = users.some((u: any) => u.email === user.email);
     
     if (userExists) {
-      return false;
+      return { success: false, error: 'emailTaken' };
     }
 
     users.push(user);
     localStorage.setItem('users', JSON.stringify(users));
-    return true;
+    return { success: true };
   }
 
   logout(): void {

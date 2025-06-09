@@ -25,7 +25,7 @@ export class AuthFormComponent implements OnInit {
 
   private namePattern = /^[a-zA-ZÀ-ÿ\s']+$/;
   private emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  private passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{6,}$/;
+  private passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/;
 
   ngOnInit() {
     this.initForm();
