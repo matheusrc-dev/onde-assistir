@@ -1,0 +1,18 @@
+<div class="min-h-screen flex flex-col items-center justify-center bg-neutral-900 p-4">
+  <div class="bg-neutral-800 p-8 rounded-lg shadow-lg max-w-md w-full">
+    <h1 class="text-yellow-400 text-3xl font-bold mb-6">Bem-vindo, {{ currentUser?.firstName }}!</h1>
+    
+    <div class="bg-neutral-700 p-4 rounded-md mb-6">
+      <h2 class="text-white text-xl mb-2">Seus dados:</h2>
+      <p class="text-gray-300">Nome: {{ currentUser?.firstName }} {{ currentUser?.lastName }}</p>
+      <p class="text-gray-300">Email: {{ currentUser?.email }}</p>
+    </div>
+    
+    <button 
+      class="w-full bg-yellow-400 hover:bg-yellow-500 text-neutral-900 font-semibold py-3 rounded-md transition-colors"
+      (click)="logout()"
+    >
+      Sair
+    </button>
+  </div>
+</div>
