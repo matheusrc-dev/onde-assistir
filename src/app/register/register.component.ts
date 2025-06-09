@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthLayoutComponent } from '../auth/auth-layout/auth-layout.component';
@@ -12,6 +12,8 @@ import { AuthService } from '../services/auth.service';
   templateUrl: './register.component.html'
 })
 export class RegisterComponent {
+  @ViewChild(AuthFormComponent) authFormComponent!: AuthFormComponent;
+
   constructor(
     private router: Router,
     private authService: AuthService
@@ -25,11 +27,12 @@ export class RegisterComponent {
       password: formData.password
     };
     
-    const success = this.authService.register(newUser);
+    const result = this.authService.register(newUser);
     
-    if (success) {
-      // Redirecionar para login após cadastro
+    if (result.success) {
       this.router.navigate(['/login']);
+    } else if (result.error === 'emailTaken') {
+      this.authFormComponent.authForm.get('email')?.setErrors({ emailTaken: true });
     }
   }
 }
