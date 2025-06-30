@@ -1,18 +1,72 @@
-<div class="min-h-screen flex flex-col items-center justify-center bg-neutral-900 p-4">
-  <div class="bg-neutral-800 p-8 rounded-lg shadow-lg max-w-md w-full">
-    <h1 class="text-yellow-400 text-3xl font-bold mb-6">Bem-vindo, {{ currentUser?.firstName }}!</h1>
-    
-    <div class="bg-neutral-700 p-4 rounded-md mb-6">
-      <h2 class="text-white text-xl mb-2">Seus dados:</h2>
-      <p class="text-gray-300">Nome: {{ currentUser?.firstName }} {{ currentUser?.lastName }}</p>
-      <p class="text-gray-300">Email: {{ currentUser?.email }}</p>
+<div class="min-h-screen bg-neutral-900 content-container">
+  <app-sidebar></app-sidebar>
+
+  <div class="md:ml-16 pb-16 md:pb-0 flex flex-col px-4 md:px-6 py-4 md:py-8 text-white">
+    <div class="text-center mb-8">
+      <div class="flex justify-center items-center mb-4 md:mb-6">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mr-2 md:mr-3">Onde Assistir</h1>
+        <img src="onde-assistir.png" alt="Onde Assistir" class="w-8 md:w-10" />
+      </div>
+
+      <p class="text-base md:text-lg text-gray-300 mb-8 md:mb-12 px-4" *ngIf="!hasSearched">
+        Obtenha detalhes de streaming de filmes e programas de TV de mais de 150
+        plataformas de streaming
+      </p>
+
+      <div class="flex flex-col md:flex-row items-center w-full max-w-3xl mx-auto gap-3 md:gap-5 mb-8">
+        <div class="relative flex-1 w-full">
+          <div
+            class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none"
+          >
+            <i class="bx bx-search text-xl text-gray-500"></i>
+          </div>
+          <input
+            type="text"
+            placeholder="Busque por um filme ou série..."
+            class="w-full py-3 px-12 rounded-[10px] bg-white text-[#1C1C1C] focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            [(ngModel)]="searchQuery"
+            (keyup.enter)="search()"
+          />
+        </div>
+        <button
+          class="bg-yellow-400 hover:bg-yellow-500 text-[#1C1C1C] font-semibold px-6 py-3 rounded-[10px] transition-colors w-full md:w-auto mt-2 md:mt-0"
+          (click)="search()"
+        >
+          Buscar
+        </button>
+      </div>
     </div>
-    
-    <button 
-      class="w-full bg-yellow-400 hover:bg-yellow-500 text-neutral-900 font-semibold py-3 rounded-md transition-colors"
-      (click)="logout()"
-    >
-      Sair
-    </button>
+
+    <app-loader
+      [isLoading]="isLoading"
+      message="Buscando conteúdo..."
+    ></app-loader>
+
+    <app-alert-message
+      *ngIf="errorMessage"
+      [message]="errorMessage"
+      type="error"
+    ></app-alert-message>
+
+    <ng-container *ngIf="!isLoading">
+      <div *ngIf="hasSearched && movies.length > 0" 
+           class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
+        <app-movie-card
+          *ngFor="let movie of movies"
+          [movie]="movie"
+          (favoriteClicked)="toggleFavorite(movie)"
+        ></app-movie-card>
+      </div>
+
+      <div
+        *ngIf="hasSearched && movies.length === 0 && !isLoading"
+        class="flex flex-col items-center justify-center h-64 px-4 text-center"
+      >
+        <i class="bx bx-search-alt text-4xl md:text-5xl text-gray-500"></i>
+        <p class="text-lg md:text-xl text-gray-400 mt-4">
+          Nenhum resultado encontrado para "{{ searchQuery }}"
+        </p>
+      </div>
+    </ng-container>
   </div>
 </div>

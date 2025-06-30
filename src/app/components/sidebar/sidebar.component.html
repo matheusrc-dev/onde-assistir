@@ -1,0 +1,70 @@
+<div *ngIf="!isMobile" class="w-16 flex flex-col items-center justify-center">
+  <a
+    [routerLink]="['/home']"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    class="p-3 rounded-md hover:bg-neutral-700 transition mb-3"
+  >
+    <i
+      class="bx bx-home-alt-2 text-2xl"
+      [ngClass]="{
+        'text-white': !(router.url === '/home'),
+        'text-[#fec60b]': router.url === '/home'
+      }"
+    ></i>
+  </a>
+  <a
+    [routerLink]="['/favorites']"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    class="p-3 rounded-md hover:bg-neutral-700 transition"
+  >
+    <i
+      class="bx bx-star text-2xl"
+      [ngClass]="{
+        'text-white': !(router.url === '/favorites'),
+        'text-[#fec60b]': router.url === '/favorites'
+      }"
+    ></i>
+  </a>
+</div>
+
+<!-- Mobile Bottom Navigation -->
+<div *ngIf="isMobile" class="flex justify-around items-center bg-neutral-800 w-full py-2 border-t border-neutral-700">
+  <a
+    [routerLink]="['/home']"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    class="p-3 rounded-md hover:bg-neutral-700 transition flex flex-col items-center"
+  >
+    <i
+      class="bx bx-home-alt-2 text-2xl"
+      [ngClass]="{
+        'text-white': !(router.url === '/home'),
+        'text-[#fec60b]': router.url === '/home'
+      }"
+    ></i>
+    <span class="text-xs mt-1" [ngClass]="{
+      'text-white': !(router.url === '/home'),
+      'text-[#fec60b]': router.url === '/home'
+    }">Início</span>
+  </a>
+  <a
+    [routerLink]="['/favorites']"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    class="p-3 rounded-md hover:bg-neutral-700 transition flex flex-col items-center"
+  >
+    <i
+      class="bx bx-star text-2xl"
+      [ngClass]="{
+        'text-white': !(router.url === '/favorites'),
+        'text-[#fec60b]': router.url === '/favorites'
+      }"
+    ></i>
+    <span class="text-xs mt-1" [ngClass]="{
+      'text-white': !(router.url === '/favorites'),
+      'text-[#fec60b]': router.url === '/favorites'
+    }">Favoritos</span>
+  </a>
+</div>

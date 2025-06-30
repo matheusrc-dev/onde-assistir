@@ -18,7 +18,6 @@ export class AuthService {
     );
 
     if (user) {
-      // Armazenar token de autenticação (simplificado)
       localStorage.setItem('authToken', `token-${Date.now()}-${email}`);
       localStorage.setItem('currentUser', JSON.stringify({
         email: user.email,
