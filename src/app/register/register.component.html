@@ -1,0 +1,12 @@
+<app-auth-layout
+  title="Crie sua conta"
+  subtitle="Preencha os campos abaixo para começar"
+  footerText="Já possui uma conta?"
+  footerLink="/login"
+  footerLinkText="Login"
+>
+  <app-auth-form
+    [isRegister]="true"
+    (formSubmit)="onRegister($event)"
+  ></app-auth-form>
+</app-auth-layout>
