@@ -65,7 +65,6 @@ export class AuthFormComponent implements OnInit {
     }
   }
 
-  // Validador personalizado para verificar se as senhas coincidem
   passwordMatchValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
     const password = control.get('password');
     const confirmPassword = control.get('confirmPassword');
@@ -83,7 +82,6 @@ export class AuthFormComponent implements OnInit {
     }
   }
 
-  // Métodos auxiliares para acessar e verificar erros nos templates
   getFieldControl(field: string) {
     return this.authForm.get(field);
   }

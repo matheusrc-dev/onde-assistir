@@ -1,0 +1,21 @@
+<div
+  *ngIf="message"
+  class="my-8 p-4 rounded-md"
+  [ngClass]="{
+    'bg-red-500/20 border border-red-500': type === 'error',
+    'bg-yellow-500/20 border border-yellow-500': type === 'warning',
+    'bg-green-500/20 border border-green-500': type === 'success',
+    'bg-blue-500/20 border border-blue-500': type === 'info'
+  }"
+>
+  <p
+    [ngClass]="{
+      'text-red-400': type === 'error',
+      'text-yellow-400': type === 'warning',
+      'text-green-400': type === 'success',
+      'text-blue-400': type === 'info'
+    }"
+  >
+    {{ message }}
+  </p>
+</div>

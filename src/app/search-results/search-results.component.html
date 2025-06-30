@@ -1,0 +1,70 @@
+<div class="min-h-screen bg-neutral-900">
+  <app-sidebar></app-sidebar>
+
+  <div class="ml-16 flex-1 flex flex-col px-6 py-8 text-white">
+    <!-- Cabeçalho com título e input de busca no estilo da home -->
+    <div class="mb-8 text-center">
+      <div class="flex justify-center items-center mb-6">
+        <h1 class="text-6xl font-bold mr-3">Onde Assistir</h1>
+        <img src="onde-assistir.png" alt="Onde Assistir" class="w-10" />
+      </div>
+
+      <div class="flex items-center w-full max-w-3xl mx-auto gap-5 mb-8">
+        <div class="relative flex-1">
+          <div
+            class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none"
+          >
+            <i class="bx bx-search text-xl text-gray-500"></i>
+          </div>
+          <input
+            type="text"
+            placeholder="Busque por um filme ou série..."
+            class="w-full py-3 px-12 rounded-[10px] bg-white text-[#1C1C1C] focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            [(ngModel)]="searchQuery"
+          />
+        </div>
+        <button
+          class="bg-yellow-400 hover:bg-yellow-500 text-[#1C1C1C] font-semibold px-6 py-3 rounded-[10px] transition-colors"
+          (click)="search()"
+        >
+          Buscar
+        </button>
+      </div>
+    </div>
+
+    <!-- Loader para carregamento -->
+    <app-loader [isLoading]="isLoading" message="Buscando filmes...">
+    </app-loader>
+
+    <!-- Mensagem de erro -->
+    <app-alert-message
+      *ngIf="errorMessage"
+      [message]="errorMessage"
+      type="error"
+    >
+    </app-alert-message>
+
+    <div
+      *ngIf="!isLoading && movies.length > 0"
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6"
+    >
+      <app-movie-card
+        *ngFor="let movie of movies"
+        [movie]="movie"
+        (favoriteClicked)="toggleFavorite(movie)"
+      >
+      </app-movie-card>
+    </div>
+
+    <!-- Mensagem para nenhum resultado -->
+    <div
+      *ngIf="!isLoading && movies.length === 0"
+      class="flex flex-col items-center justify-center h-64"
+    >
+      <i class="bx bx-search-alt text-5xl text-gray-500"></i>
+      <p class="text-xl text-gray-400 mt-4">
+        Nenhum resultado encontrado para "{{ searchQuery }}"
+      </p>
+    </div>
+  </div>
+</div>
