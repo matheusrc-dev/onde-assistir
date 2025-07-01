@@ -1,148 +1,224 @@
 {
   "shows": [
     {
-      "id": 1,
+      "id": "1",
       "externalId": "tt0372784",
       "title": "Batman Begins",
       "description": "Bruce Wayne becomes Batman and begins his fight against crime in Gotham City.",
       "posterUrl": "https://m.media-amazon.com/images/M/MV5BOTY4YjI2N2MtYmFlMC00ZjcyLTg3YjEtMDQyM2ZjYzQ5YWFkXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg",
       "availableOn": ["Netflix", "Prime Video"],
-      "releaseYear": 2005
+      "releaseYear": 2005,
+      "releaseDate": "2005-06-15",
+      "categories": ["Ação", "Aventura", "Suspense"]
     },
     {
-      "id": 2,
+      "id": "2",
       "externalId": "tt0468569",
       "title": "The Dark Knight",
       "description": "Batman faces off against the Joker in a battle for Gotham's soul.",
       "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg",
       "availableOn": ["Max", "Netflix"],
-      "releaseYear": 2008
+      "releaseYear": 2008,
+      "releaseDate": "2008-07-18",
+      "categories": ["Ação", "Crime", "Drama"]
     },
     {
-      "id": 3,
+      "id": "3",
       "externalId": "tt2975590",
       "title": "Batman v Superman: Dawn of Justice",
       "description": "Batman and Superman face off while a new threat looms.",
       "posterUrl": "https://m.media-amazon.com/images/M/MV5BYThjYzcyYzItNTVjNy00NDk0LTgwMWQtYjMwNmNlNWJhMzMyXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg",
       "availableOn": ["Prime Video"],
-      "releaseYear": 2016
+      "releaseYear": 2016,
+      "releaseDate": "2016-03-25",
+      "categories": ["Ação", "Ficção Científica", "Superhero"]
     },
     {
-      "id": 4,
+      "id": "4",
       "externalId": "tt1877830",
       "title": "The Batman",
       "description": "A young Batman uncovers corruption in Gotham and faces the Riddler.",
       "posterUrl": "https://m.media-amazon.com/images/M/MV5BMDdmMTBiNTYtMDIzNi00NGVlLWIzMDYtZTk3MTQ3NGQxZGEwXkEyXkFqcGdeQXVyMzMwOTU5MDk@._V1_.jpg",
       "availableOn": ["Max"],
-      "releaseYear": 2022
+      "releaseYear": 2022,
+      "releaseDate": "2022-03-04",
+      "categories": ["Crime", "Mystery", "Suspense"]
     },
     {
-      "id": 5,
+      "id": "5",
       "externalId": "tt4154796",
       "title": "Avengers: Endgame",
       "description": "The Avengers assemble one last time to reverse Thanos' snap.",
       "posterUrl": "https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_.jpg",
       "availableOn": ["Disney+"],
-      "releaseYear": 2019
+      "releaseYear": 2019,
+      "releaseDate": "2019-04-26",
+      "categories": ["Ação", "Aventura", "Ficção Científica"]
     },
     {
-      "id": 6,
-      "externalId": "tt0848228",
       "title": "The Avengers",
       "description": "Earth's mightiest heroes must come together to stop Loki and his alien army.",
       "posterUrl": "https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg",
-      "availableOn": ["Disney+", "Prime Video"],
-      "releaseYear": 2012
+      "releaseYear": 2012,
+      "releaseDate": "2012-05-04",
+      "availableOn": ["Disney+", "Prime Video", "Max"],
+      "categories": ["Ação", "Aventura", "Ficção Científica"],
+      "externalId": "movie-6",
+      "id": "6"
     },
     {
-      "id": 7,
+      "id": "7",
       "externalId": "tt1375666",
       "title": "Inception",
       "description": "A skilled thief enters dreams to steal secrets, but faces his toughest challenge yet.",
       "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg",
       "availableOn": ["Netflix", "Max"],
-      "releaseYear": 2010
+      "releaseYear": 2010,
+      "releaseDate": "2010-07-16",
+      "categories": ["Ação", "Ficção Científica", "Suspense"]
     },
     {
-      "id": 8,
+      "id": "8",
       "externalId": "tt7286456",
       "title": "Joker",
       "description": "Arthur Fleck, a failed comedian, descends into madness and becomes the Joker.",
       "posterUrl": "https://m.media-amazon.com/images/M/MV5BNGVjNWI4ZGUtNzE0MS00YTJmLWE0ZDctN2ZiYTk2YmI3NTYyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg",
       "availableOn": ["Max"],
-      "releaseYear": 2019
+      "releaseYear": 2019,
+      "releaseDate": "2019-10-04",
+      "categories": ["Crime", "Drama", "Suspense"]
     },
     {
-      "id": 9,
+      "id": "9",
       "externalId": "tt0107290",
       "title": "Jurassic Park",
       "description": "A theme park suffers a major security breakdown and dinosaurs escape.",
       "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjM2MDgxMDg0Nl5BMl5BanBnXkFtZTgwNTM2OTM5NDE@._V1_.jpg",
       "availableOn": ["Netflix", "Prime Video"],
-      "releaseYear": 1993
+      "releaseYear": 1993,
+      "releaseDate": "1993-06-11",
+      "categories": ["Aventura", "Ficção Científica", "Suspense"]
     },
     {
-      "id": 10,
+      "id": "10",
       "externalId": "tt4154756",
       "title": "Avengers: Infinity War",
       "description": "The Avengers face their greatest threat yet — Thanos.",
       "posterUrl": "https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_.jpg",
       "availableOn": ["Disney+"],
-      "releaseYear": 2018
+      "releaseYear": 2018,
+      "releaseDate": "2018-04-27",
+      "categories": ["Ação", "Aventura", "Ficção Científica"]
     },
     {
-      "id": 11,
+      "id": "11",
       "externalId": "tt2096673",
       "title": "Inside Out",
       "description": "A young girl navigates emotions like Joy and Sadness in this Pixar animation.",
       "posterUrl": "https://m.media-amazon.com/images/M/MV5BOTgxMDQwMDk0OF5BMl5BanBnXkFtZTgwNjU5OTg2NDE@._V1_.jpg",
       "availableOn": ["Disney+"],
-      "releaseYear": 2015
+      "releaseYear": 2015,
+      "releaseDate": "2015-06-19",
+      "categories": ["Animation", "Aventura", "Comédia"]
     },
     {
-      "id": 12,
+      "id": "12",
       "externalId": "tt0076759",
       "title": "Star Wars: Episode IV - A New Hope",
       "description": "Luke Skywalker joins forces with a Jedi Knight and others to save the galaxy from the Empire's battle station.",
       "posterUrl": "https://m.media-amazon.com/images/M/MV5BOTA5NjhiOTAtZWM0ZC00MWNhLThiMzEtZDFkOTk2OTU1ZDJkXkEyXkFqcGdeQXVyMTA4NDI1NTQx._V1_.jpg",
       "availableOn": ["Disney+", "Prime Video"],
-      "releaseYear": 1977
+      "releaseYear": 1977,
+      "releaseDate": "1977-05-25",
+      "categories": ["Ação", "Aventura", "Fantasy"]
     },
     {
-      "id": 13,
+      "id": "13",
       "externalId": "tt0080684",
       "title": "Star Wars: Episode V - The Empire Strikes Back",
       "description": "After the Rebels are brutally overpowered by the Empire, Luke Skywalker begins Jedi training with Yoda.",
       "posterUrl": "https://m.media-amazon.com/images/M/MV5BYmU1NDRjNDgtMzhiMi00NjZmLTg5NGItZDNiZjU5NTU4OTE0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg",
       "availableOn": ["Disney+", "Prime Video"],
-      "releaseYear": 1980
+      "releaseYear": 1980,
+      "releaseDate": "1980-05-21",
+      "categories": ["Ação", "Aventura", "Fantasy"]
     },
     {
-      "id": 14,
+      "id": "14",
       "externalId": "tt0086190",
       "title": "Star Wars: Episode VI - Return of the Jedi",
       "description": "After rescuing Han Solo from Jabba the Hutt, the Rebels attempt to destroy the second Death Star.",
       "posterUrl": "https://m.media-amazon.com/images/M/MV5BOWZlMjFiYzgtMTUzNC00Y2IzLTk1NTMtZmNhMTczNTk0ODk1XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg",
       "availableOn": ["Disney+", "Prime Video"],
-      "releaseYear": 1983
+      "releaseYear": 1983,
+      "releaseDate": "1983-05-25",
+      "categories": ["Ação", "Aventura", "Fantasy"]
     },
     {
-      "id": 15,
+      "id": "15",
       "externalId": "tt0499549",
       "title": "Avatar",
       "description": "A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following orders and protecting the world he feels is his home.",
       "posterUrl": "https://m.media-amazon.com/images/M/MV5BZDA0OGQxNTItMDZkMC00N2UyLTg3MzMtYTJmNjg3Nzk5MzRiXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_.jpg",
       "availableOn": ["Disney+", "Max"],
-      "releaseYear": 2009
+      "releaseYear": 2009,
+      "releaseDate": "2009-12-18",
+      "categories": ["Ação", "Aventura", "Fantasy"]
     },
     {
-      "id": 16,
+      "id": "16",
       "externalId": "tt0133093",
       "title": "The Matrix",
       "description": "A computer hacker learns about the true nature of reality and his role in the war against its controllers.",
       "posterUrl": "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg",
       "availableOn": ["Max", "Netflix"],
-      "releaseYear": 1999
+      "releaseYear": 1999,
+      "releaseDate": "1999-03-31",
+      "categories": ["Ação", "Ficção Científica"]
+    },
+    {
+      "id": "17",
+      "externalId": "tt4154664",
+      "title": "Captain Marvel",
+      "description": "Carol Danvers becomes one of the universe's most powerful heroes when Earth is caught in the middle of a galactic war.",
+      "posterUrl": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4114fc16-d47f-4c44-a197-86b204c21239/dey14ao-6ac842a2-a840-4c60-88d3-df830cd1bb72.png/v1/fill/w_1280,h_1896,q_80,strp/21__captain_marvel__2019__official_poster_by_sdstark_dey14ao-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTg5NiIsInBhdGgiOiJcL2ZcLzQxMTRmYzE2LWQ0N2YtNGM0NC1hMTk3LTg2YjIwNGMyMTIzOVwvZGV5MTRhby02YWM4NDJhMi1hODQwLTRjNjAtODhkMy1kZjgzMGNkMWJiNzIucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.heLg6r7ZlsJTXlUw0f0QZVvLyzSk4NdZmbjOvqrc7vY",
+      "availableOn": ["Disney+"],
+      "releaseYear": 2019,
+      "releaseDate": "2019-03-08",
+      "categories": ["Ação", "Aventura", "Ficção Científica"]
+    },
+    {
+      "id": "18",
+      "externalId": "tt1872181",
+      "title": "The Amazing Spider-Man",
+      "description": "Peter Parker finds a clue that might help him understand why his parents disappeared when he was young.",
+      "posterUrl": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4114fc16-d47f-4c44-a197-86b204c21239/dezr258-8295c172-3d91-48a2-96f6-2587baa0080b.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzQxMTRmYzE2LWQ0N2YtNGM0NC1hMTk3LTg2YjIwNGMyMTIzOVwvZGV6cjI1OC04Mjk1YzE3Mi0zZDkxLTQ4YTItOTZmNi0yNTg3YmFhMDA4MGIucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.yGGNyunXpDv5IyRnitd-lv-d1Kz9euy2ZF84fwawpIQ",
+      "availableOn": ["Netflix", "Prime Video"],
+      "releaseYear": 2012,
+      "releaseDate": "2012-07-03",
+      "categories": ["Ação", "Aventura", "Fantasy"]
+    },
+    {
+      "id": "19",
+      "externalId": "tt0383574",
+      "title": "Pirates of the Caribbean: Dead Man's Chest",
+      "description": "Jack Sparrow races to recover the heart of Davy Jones to avoid enslaving his soul to Jones' service.",
+      "posterUrl": "https://mir-s3-cdn-cf.behance.net/project_modules/1400/67e18c102728031.5f3d2ae116bdc.png",
+      "availableOn": ["Disney+"],
+      "releaseYear": 2006,
+      "releaseDate": "2006-07-07",
+      "categories": ["Ação", "Aventura", "Fantasy"]
+    },
+    {
+      "id": "20",
+      "externalId": "tt4154756",
+      "title": "Doctor Strange",
+      "description": "After a car accident, a brilliant neurosurgeon discovers the hidden world of magic and alternate dimensions.",
+      "posterUrl": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b8aad1c2-a759-46e4-ba29-eca3b3a8ff30/d9lw6si-be31aefb-a8ca-450f-8c6f-24a10c51fd54.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2I4YWFkMWMyLWE3NTktNDZlNC1iYTI5LWVjYTNiM2E4ZmYzMFwvZDlsdzZzaS1iZTMxYWVmYi1hOGNhLTQ1MGYtOGM2Zi0yNGExMGM1MWZkNTQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.I6XSbgJygKC2jL5ctff1YN43PLu-7aOttJVunuNxoZA",
+      "availableOn": ["Disney+", "Prime Video"],
+      "releaseYear": 2016,
+      "releaseDate": "2016-11-04",
+      "categories": ["Ação", "Aventura", "Fantasy"]
     }
   ]
 }

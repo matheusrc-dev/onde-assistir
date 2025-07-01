@@ -10,6 +10,8 @@ export interface Movie {
   posterUrl: string;
   availableOn: string[];
   releaseYear: number;
+  releaseDate: string;
+  categories: string[];
   isFavorite?: boolean;
 }
 
@@ -26,7 +28,6 @@ export class MovieService {
     const encodedQuery = encodeURIComponent(query);
     return this.http.get<Movie[]>(`${this.apiUrl}/shows?title_like=${encodedQuery}`).pipe(
       map(movies => {
-        // Aplicar filtragem adicional caso o JSON Server não esteja filtrando corretamente
         const filtered = query ? 
           movies.filter(movie => movie.title.toLowerCase().includes(query.toLowerCase())) :
           movies;
@@ -80,5 +81,32 @@ export class MovieService {
   isFavorite(movieId: number): boolean {
     const favorites = this.getFavorites();
     return favorites.some(f => f.id === movieId);
+  }
+  
+  createMovie(movie: Partial<Movie>): Observable<Movie> {
+    return this.http.post<Movie>(`${this.apiUrl}/shows`, movie).pipe(
+      catchError(error => {
+        console.error('Error creating movie:', error);
+        throw error;
+      })
+    );
+  }
+  
+  updateMovie(id: number, movie: Partial<Movie>): Observable<Movie> {
+    return this.http.put<Movie>(`${this.apiUrl}/shows/${id}`, movie).pipe(
+      catchError(error => {
+        console.error(`Error updating movie with ID ${id}:`, error);
+        throw error;
+      })
+    );
+  }
+  
+  deleteMovie(id: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/shows/${id}`).pipe(
+      catchError(error => {
+        console.error(`Error deleting movie with ID ${id}:`, error);
+        throw error;
+      })
+    );
   }
 }

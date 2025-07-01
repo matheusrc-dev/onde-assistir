@@ -10,5 +10,23 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent, canActivate: [authGuard] },
-  { path: 'favorites', component: FavoritesComponent, canActivate: [authGuard] }
+  { path: 'favorites', component: FavoritesComponent, canActivate: [authGuard] },
+  { 
+    path: 'movie', 
+    canActivate: [authGuard],
+    children: [
+      { 
+        path: 'new', 
+        loadComponent: () => import('./movie-form/movie-form.component').then(m => m.MovieFormComponent) 
+      },
+      { 
+        path: ':id', 
+        loadComponent: () => import('./movie-details/movie-details.component').then(m => m.MovieDetailsComponent)
+      },
+      {
+        path: ':id/edit',
+        loadComponent: () => import('./movie-form/movie-form.component').then(m => m.MovieFormComponent)
+      }
+    ]
+  }
 ];

@@ -1,9 +1,11 @@
-<div *ngIf="!isMobile" class="w-16 flex flex-col items-center justify-center">
+<div
+  class="flex items-center justify-around py-4 bg-neutral-900 md:relative md:w-16 md:flex-col md:justify-center md:py-0 md:h-full"
+>
   <a
     [routerLink]="['/home']"
     routerLinkActive="active"
     [routerLinkActiveOptions]="{ exact: true }"
-    class="p-3 rounded-md hover:bg-neutral-700 transition mb-3"
+    class="p-3 rounded-md hover:bg-neutral-700 transition cursor-pointer flex items-center"
   >
     <i
       class="bx bx-home-alt-2 text-2xl"
@@ -17,7 +19,7 @@
     [routerLink]="['/favorites']"
     routerLinkActive="active"
     [routerLinkActiveOptions]="{ exact: true }"
-    class="p-3 rounded-md hover:bg-neutral-700 transition"
+    class="p-3 rounded-md hover:bg-neutral-700 transition cursor-pointer flex items-center"
   >
     <i
       class="bx bx-star text-2xl"
@@ -27,44 +29,27 @@
       }"
     ></i>
   </a>
-</div>
 
-<!-- Mobile Bottom Navigation -->
-<div *ngIf="isMobile" class="flex justify-around items-center bg-neutral-800 w-full py-2 border-t border-neutral-700">
-  <a
-    [routerLink]="['/home']"
+    <a
+    [routerLink]="['/movie/new']"
     routerLinkActive="active"
     [routerLinkActiveOptions]="{ exact: true }"
-    class="p-3 rounded-md hover:bg-neutral-700 transition flex flex-col items-center"
+    class="p-3 rounded-md hover:bg-neutral-700 transition cursor-pointer flex items-center"
   >
     <i
-      class="bx bx-home-alt-2 text-2xl"
+      class="bx bx-plus text-2xl"
       [ngClass]="{
-        'text-white': !(router.url === '/home'),
-        'text-[#fec60b]': router.url === '/home'
+        'text-white': !(router.url === '/movie/new'),
+        'text-[#fec60b]': router.url === '/movie/new'
       }"
     ></i>
-    <span class="text-xs mt-1" [ngClass]="{
-      'text-white': !(router.url === '/home'),
-      'text-[#fec60b]': router.url === '/home'
-    }">Início</span>
   </a>
-  <a
-    [routerLink]="['/favorites']"
-    routerLinkActive="active"
-    [routerLinkActiveOptions]="{ exact: true }"
-    class="p-3 rounded-md hover:bg-neutral-700 transition flex flex-col items-center"
+
+  <button
+    (click)="logout()"
+    class="p-3 rounded-md hover:bg-neutral-700 transition cursor-pointer flex items-center md:absolute md:bottom-4"
+    title="Sair"
   >
-    <i
-      class="bx bx-star text-2xl"
-      [ngClass]="{
-        'text-white': !(router.url === '/favorites'),
-        'text-[#fec60b]': router.url === '/favorites'
-      }"
-    ></i>
-    <span class="text-xs mt-1" [ngClass]="{
-      'text-white': !(router.url === '/favorites'),
-      'text-[#fec60b]': router.url === '/favorites'
-    }">Favoritos</span>
-  </a>
+    <i class="bx bx-arrow-out-left-square-half text-white text-2xl"></i>
+  </button>
 </div>

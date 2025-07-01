@@ -1,0 +1,155 @@
+<div class="min-h-screen bg-neutral-900 content-container">
+  <app-sidebar></app-sidebar>
+
+  <div class="md:ml-16 pb-16 md:pb-0 flex flex-col px-4 md:px-6 py-4 md:py-8 text-white">
+    <div class="max-w-3xl mx-auto w-full">
+      <div class="mb-6 flex items-center">
+        <button class="text-gray-400 hover:text-white mr-3" (click)="cancelForm()">
+          <i class="bx bx-arrow-left-stroke text-2xl"></i>
+        </button>
+        <h1 class="text-2xl md:text-3xl font-bold">{{ isEdit ? 'Editar' : 'Cadastrar' }} Filme</h1>
+      </div>
+
+      <app-loader [isLoading]="isLoading" message="Carregando..."></app-loader>
+      
+      <app-alert-message *ngIf="errorMessage" [message]="errorMessage" type="error"></app-alert-message>
+      <app-alert-message *ngIf="successMessage" [message]="successMessage" type="success"></app-alert-message>
+
+      <form [formGroup]="movieForm" (ngSubmit)="onSubmit()" class="space-y-6" *ngIf="!isLoading || isEdit">
+        <div class="form-group">
+          <label for="title" class="block text-sm font-medium text-gray-300 mb-1">Título *</label>
+          <input 
+            type="text" 
+            id="title" 
+            formControlName="title"
+            class="w-full py-2 px-3 rounded-md bg-neutral-800 text-white border border-neutral-700 focus:border-yellow-500 focus:outline-none"
+            placeholder="Digite o título do filme"
+          >
+          <div *ngIf="movieForm.get('title')?.invalid && movieForm.get('title')?.touched" class="text-red-500 text-sm mt-1">
+            O título é obrigatório
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="description" class="block text-sm font-medium text-gray-300 mb-1">Descrição *</label>
+          <textarea 
+            id="description" 
+            formControlName="description"
+            class="w-full py-2 px-3 rounded-md bg-neutral-800 text-white border border-neutral-700 focus:border-yellow-500 focus:outline-none"
+            placeholder="Digite a descrição do filme"
+            rows="4"
+          ></textarea>
+          <div *ngIf="movieForm.get('description')?.invalid && movieForm.get('description')?.touched" class="text-red-500 text-sm mt-1">
+            A descrição é obrigatória e deve ter pelo menos 10 caracteres
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="posterUrl" class="block text-sm font-medium text-gray-300 mb-1">URL do Poster *</label>
+          <input 
+            type="url" 
+            id="posterUrl" 
+            formControlName="posterUrl"
+            class="w-full py-2 px-3 rounded-md bg-neutral-800 text-white border border-neutral-700 focus:border-yellow-500 focus:outline-none"
+            placeholder="https://exemplo.com/poster.jpg"
+          >
+          <div *ngIf="movieForm.get('posterUrl')?.invalid && movieForm.get('posterUrl')?.touched" class="text-red-500 text-sm mt-1">
+            A URL do poster é obrigatória
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="releaseYear" class="block text-sm font-medium text-gray-300 mb-1">Ano de Lançamento *</label>
+          <input 
+            type="number" 
+            id="releaseYear" 
+            formControlName="releaseYear"
+            class="w-full py-2 px-3 rounded-md bg-neutral-800 text-white border border-neutral-700 focus:border-yellow-500 focus:outline-none"
+            placeholder="Ex: 2023"
+            min="1900"
+            [max]="currentYear"
+          >
+          <div *ngIf="movieForm.get('releaseYear')?.invalid && movieForm.get('releaseYear')?.touched" class="text-red-500 text-sm mt-1">
+            O ano de lançamento é obrigatório e deve estar entre 1900 e o ano atual
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="releaseDate" class="block text-sm font-medium text-gray-300 mb-1">Data de Lançamento *</label>
+          <input 
+            type="date" 
+            id="releaseDate" 
+            formControlName="releaseDate"
+            class="w-full py-2 px-3 rounded-md bg-neutral-800 text-white border border-neutral-700 focus:border-yellow-500 focus:outline-none"
+          >
+          <div *ngIf="movieForm.get('releaseDate')?.invalid && movieForm.get('releaseDate')?.touched" class="text-red-500 text-sm mt-1">
+            A data de lançamento é obrigatória
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="block text-sm font-medium text-gray-300 mb-2">Plataformas Disponíveis *</label>
+          <div class="flex flex-wrap gap-2">
+            <button 
+              type="button"
+              *ngFor="let platform of platforms"
+              (click)="togglePlatform(platform)"
+              class="py-1 px-3 rounded-full text-sm"
+              [ngClass]="{
+                'bg-red-600 text-white': platform === 'Netflix' && isPlatformSelected(platform),
+                'bg-blue-600 text-white': platform === 'Prime Video' && isPlatformSelected(platform),
+                'bg-purple-600 text-white': platform === 'Max' && isPlatformSelected(platform),
+                'bg-green-600 text-white': platform === 'Disney+' && isPlatformSelected(platform),
+                'bg-gray-600 text-white': !['Netflix', 'Prime Video', 'Max', 'Disney+'].includes(platform) && isPlatformSelected(platform),
+                'bg-neutral-700 text-gray-300': !isPlatformSelected(platform)
+              }"
+            >
+              {{ platform }}
+            </button>
+          </div>
+          <div *ngIf="getAvailableOnArray().invalid && getAvailableOnArray().touched" class="text-red-500 text-sm mt-1">
+            Selecione pelo menos uma plataforma
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="block text-sm font-medium text-gray-300 mb-2">Categorias *</label>
+          <div class="flex flex-wrap gap-2">
+            <button 
+              type="button"
+              *ngFor="let category of categories"
+              (click)="toggleCategory(category)"
+              class="py-1 px-3 rounded-full text-sm"
+              [ngClass]="{
+                'bg-yellow-600 text-white': isCategorySelected(category),
+                'bg-neutral-700 text-gray-300': !isCategorySelected(category)
+              }"
+            >
+              {{ category }}
+            </button>
+          </div>
+          <div *ngIf="getCategoriesArray().invalid && getCategoriesArray().touched" class="text-red-500 text-sm mt-1">
+            Selecione pelo menos uma categoria
+          </div>
+        </div>
+
+        <div class="flex justify-end space-x-3 pt-4">
+          <button 
+            type="button" 
+            class="px-5 py-2 rounded-md bg-neutral-700 text-white hover:bg-neutral-600"
+            (click)="cancelForm()"
+          >
+            Cancelar
+          </button>
+          <button 
+            type="submit" 
+            class="px-5 py-2 rounded-md bg-yellow-500 text-black font-semibold hover:bg-yellow-400"
+            [disabled]="movieForm.invalid"
+          >
+            {{ isEdit ? 'Atualizar' : 'Cadastrar' }}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

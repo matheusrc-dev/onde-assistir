@@ -79,6 +79,10 @@ export class HomeComponent implements OnInit {
     this.movieService.toggleFavorite(movie);
   }
 
+  navigateToCreateMovie(): void {
+    this.router.navigate(['/movie/new']);
+  }
+
   logout(): void {
     this.authService.logout();
   }

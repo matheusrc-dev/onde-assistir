@@ -1,6 +1,7 @@
-import { Component, ViewEncapsulation, HostListener } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,23 +9,14 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule, RouterModule],
   templateUrl: './sidebar.component.html',
   host: {
-    '[class]': 'isMobile ? "fixed bottom-0 left-0 right-0 z-10" : "w-16 flex flex-col items-center justify-center fixed h-screen top-0 left-0"',
+    class:
+      'fixed bottom-0 left-0 right-0 z-10  md:w-16 md:flex md:flex-col md:items-center md:justify-center md:h-screen md:top-0 md:left-0',
   },
 })
 export class SidebarComponent {
-  isMobile: boolean = false;
+  constructor(public router: Router, private authService: AuthService) {}
 
-  constructor(public router: Router) {
-    // Verificar tamanho da tela no início
-    this.checkScreenSize();
-  }
-
-  @HostListener('window:resize', ['$event'])
-  onResize(event: any) {
-    this.checkScreenSize();
-  }
-
-  private checkScreenSize(): void {
-    this.isMobile = window.innerWidth < 768; // 768px é um breakpoint comum para tablets/dispositivos móveis
+  logout(): void {
+    this.authService.logout();
   }
 }

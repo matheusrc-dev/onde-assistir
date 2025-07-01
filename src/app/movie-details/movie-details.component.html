@@ -1,0 +1,136 @@
+<div class="min-h-screen bg-neutral-900">
+  <app-sidebar></app-sidebar>
+
+  <div
+    class="md:ml-16 pb-20 md:pb-0 flex-1 flex flex-col px-4 md:px-6 py-4 md:py-8 text-white"
+  >
+    <button
+      (click)="goBack()"
+      class="flex items-center text-white mb-6 hover:text-yellow-400 transition"
+    >
+      <i class="bx bx-arrow-left-stroke text-3xl"></i>
+      <span>Voltar</span>
+    </button>
+
+    <app-loader
+      [isLoading]="isLoading"
+      message="Carregando detalhes do filme..."
+    ></app-loader>
+
+    <app-alert-message
+      *ngIf="errorMessage"
+      [message]="errorMessage"
+      type="error"
+    ></app-alert-message>
+
+    <div *ngIf="movie && !isLoading" class="flex flex-col md:flex-row gap-8">
+      <div class="w-full md:w-1/4 flex flex-col">
+        <div class="bg-neutral-800 rounded-lg p-4 shadow-lg">
+          <img
+            [src]="movie.posterUrl || 'no-poster.png'"
+            [alt]="movie.title"
+            class="rounded-lg object-cover h-auto md:h-[500px] mx-auto"
+          />
+
+          <div class="flex flex-col gap-2 mt-4">
+            <button
+              (click)="toggleFavorite()"
+              class="w-full p-3 rounded-lg flex items-center justify-center gap-1 transition"
+              [ngClass]="{
+                'bg-neutral-700 hover:bg-neutral-600': !movie.isFavorite,
+                'bg-yellow-500 hover:bg-yellow-600': movie.isFavorite
+              }"
+            >
+              <i
+                class="bx"
+                [ngClass]="{
+                  'bx-star text-white': !movie.isFavorite,
+                  'bxs-star text-white': movie.isFavorite
+                }"
+              ></i>
+              {{
+                movie.isFavorite
+                  ? "Remover dos favoritos"
+                  : "Adicionar aos favoritos"
+              }}
+            </button>
+
+            <button
+              (click)="navigateToEdit()"
+              class="w-full p-3 rounded-lg flex items-center justify-center gap-1 bg-blue-600 hover:bg-blue-700 transition"
+            >
+              <i class="bx bx-edit text-white"></i>
+              Editar filme
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full md:w-2/3">
+        <h1 class="text-3xl md:text-4xl font-bold mb-4">{{ movie.title }}</h1>
+
+        <div class="mb-6">
+          <span
+            class="bg-yellow-500 text-black font-bold px-3 py-1 rounded-md text-sm"
+          >
+            {{ movie.releaseYear }}
+          </span>
+          <span class="mx-2 text-gray-400">•</span>
+          <span class="text-gray-300">
+            {{ movie.releaseDate | date: "dd/MM/yyyy" }}
+          </span>
+        </div>
+
+        <div class="mb-6">
+          <h2 class="text-xl font-semibold mb-2">Disponível em</h2>
+          <div class="flex flex-wrap gap-2">
+            <span
+              *ngFor="let service of movie.availableOn"
+              class="py-1 px-3 rounded-full text-sm"
+              [ngClass]="{
+                'bg-red-600 text-white': service === 'Netflix',
+                'bg-blue-600 text-white': service === 'Prime Video',
+                'bg-purple-600 text-white': service === 'Max',
+                'bg-green-600 text-white': service === 'Disney+',
+                'bg-gray-600 text-white': ![
+                  'Netflix',
+                  'Prime Video',
+                  'Max',
+                  'Disney+'
+                ].includes(service)
+              }"
+            >
+              {{ service }}
+            </span>
+          </div>
+        </div>
+
+        <div class="mb-6">
+          <h2 class="text-xl font-semibold mb-2">Categorias</h2>
+          <div class="flex flex-wrap gap-2">
+            <span
+              *ngFor="let category of movie.categories"
+              class="bg-neutral-700 text-white py-1 px-3 rounded-full text-sm"
+            >
+              {{ category }}
+            </span>
+          </div>
+        </div>
+
+        <div class="mb-6">
+          <h2 class="text-xl font-semibold mb-2">Sinopse</h2>
+          <p class="text-gray-300 leading-relaxed">
+            {{ movie.description }}
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-xl font-semibold mb-2">ID Externo</h2>
+          <p class="text-gray-300">
+            {{ movie.externalId }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
